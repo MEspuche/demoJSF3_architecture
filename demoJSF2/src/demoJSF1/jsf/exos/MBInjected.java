@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 public class MBInjected {
 
 
-
 	public MBInjected()
 	{
 		System.out.println("Injected bean created");
@@ -19,6 +18,10 @@ public class MBInjected {
 		System.out.println("show injected");
 	}
 	
+	public String getInjectedData()
+	{
+		return "Hello injected";
+	}
 	
 	
 }

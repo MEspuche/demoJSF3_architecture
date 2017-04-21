@@ -16,14 +16,24 @@ public class MBInject {
 	}
 
 	@ManagedProperty(value="#{mbinjected}")
-	private MBInjected mbinjected;
+	private MBInjected mbinjected2;
 	
+	
+	
+	public MBInjected getMbinjected2() {
+		return mbinjected2;
+	}
+
+	public void setMbinjected2(MBInjected mbinjected2) {
+		this.mbinjected2 = mbinjected2;
+	}
+
 	private String data = "data from inject";
 
 	
 	public String getData() {
-		mbinjected.show();
-		return data;
+		mbinjected2.show();
+		return mbinjected2.getInjectedData();
 	}
 
 	public void setData(String data) {
