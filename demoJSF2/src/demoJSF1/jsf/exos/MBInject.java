@@ -18,8 +18,21 @@ public class MBInject {
 	@ManagedProperty(value="#{mbinjected}")
 	private MBInjected mbinjected2;
 	
+	@ManagedProperty(value="#{mbinjectedservice}")
+	private MBInjectedService mbinjectedservice;
+	
+	@ManagedProperty(value="#{clientservice}")
+	private ClientService clientservice;
 	
 	
+	public MBInjectedService getMbinjectedservice() {
+		return mbinjectedservice;
+	}
+
+	public void setMbinjectedservice(MBInjectedService mbinjectedservice) {
+		this.mbinjectedservice = mbinjectedservice;
+	}
+
 	public MBInjected getMbinjected2() {
 		return mbinjected2;
 	}
@@ -27,13 +40,26 @@ public class MBInject {
 	public void setMbinjected2(MBInjected mbinjected2) {
 		this.mbinjected2 = mbinjected2;
 	}
+	
+	
+	
+
+	public ClientService getClientservice() {
+		return clientservice;
+	}
+
+	public void setClientservice(ClientService clientservice) {
+		this.clientservice = clientservice;
+	}
 
 	private String data = "data from inject";
 
 	
 	public String getData() {
 		mbinjected2.show();
-		return mbinjected2.getInjectedData();
+		mbinjectedservice.show();
+		return mbinjected2.getInjectedData() + mbinjectedservice.getInjectedData() + mbinjectedservice.getInjectedData2()
+		+ " nombre de clients : " + clientservice.getNombre() ;
 	}
 
 	public void setData(String data) {

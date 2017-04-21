@@ -2,15 +2,26 @@ package demoJSF1.jsf.exos;
 
 import java.util.ArrayList;
 
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 
+@ManagedBean(name ="clientservice")
+@ApplicationScoped
 public class ClientService {
 
 
 	public ArrayList<Client> clients = new ArrayList<Client>();
 
+	public int nombre;
 	
 	
 	
+	public int getNombre() {
+		return clients.size();
+	}
+	public void setNombre(int nombre) {
+		this.nombre = nombre;
+	}
 	public ArrayList<Client> getClients() {
 		System.out.println("get mbclients");
 		return clients;
