@@ -16,12 +16,12 @@
 <f:facet name="header"> 
 <h:outputText value="client choisi"/>
 </f:facet>
-<h:outputLabel value="nom : "/> <h:inputText value="#{mbclients.newClientNom}"/>
-<h:outputLabel value="prenom : "/> <h:inputText  value="#{mbclients.newClientPrenom}"/>
+<h:outputLabel value="nom : "/> <h:inputText value="#{mbclients.newClient.nom}"/>
+<h:outputLabel value="prenom : "/> <h:inputText  value="#{mbclients.newClient.prenom}"/>
 </h:panelGrid>
 
 
-<h:commandButton type="submit" value="ajouter un client" action="#{mbclients.ajouter(mbclients.newClientNom,mbclients.newClientPrenom)}"></h:commandButton>
+<h:commandButton type="submit" value="ajouter un client" action="#{mbclients.ajouter()}"></h:commandButton>
 </h:form>
 
 

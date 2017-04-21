@@ -10,46 +10,39 @@ import javax.faces.bean.SessionScoped;
 public class MBClients {
 
 
-	public ArrayList<Client> clients = new ArrayList<Client>();
-	public MBClients()
-	{
-		clients.add(new Client("Dupont", "Jean"));
-		clients.add(new Client ("Durand","Paul"));
-	}
-	public ArrayList<Client> getClients() {
-		System.out.println("get mbclients");
-		return clients;
-	}
-	public void setClients(ArrayList<Client> clients) {
-		this.clients = clients;
-	}
-	
-	private String newClientNom;
-	private String newClientPrenom;
-
-	
-	
-	public String getNewClientNom() {
-		return newClientNom;
-	}
-	public void setNewClientNom(String newClientNom) {
-		this.newClientNom = newClientNom;
-	}
-	public String getNewClientPrenom() {
-		return newClientPrenom;
-	}
-	public void setNewClientPrenom(String newClientPrenom) {
-		this.newClientPrenom = newClientPrenom;
-	}
-
+	ClientService clientservice;
 	private Client clientCourant;
+	private Client newClient= new Client();
+	
+	
 	
 	public Client getClientCourant() {
 		return clientCourant;
 	}
+
+
 	public void setClientCourant(Client clientCourant) {
 		this.clientCourant = clientCourant;
 	}
+
+
+	public MBClients()
+	{
+		clientservice = new ClientService();
+	}
+	
+	
+	public ArrayList<Client> getClients() {
+		return clientservice.getClients();
+	}
+	
+	
+	public int getNombre()
+	{
+		return clientservice.getClients().size();
+	}
+	
+	
 	public String select(Client client)
 	{
 		this.clientCourant = client;
@@ -57,18 +50,30 @@ public class MBClients {
 		return "client";
 	}
 	
+	
+	
+	public Client getNewClient()
+	{
+		return newClient;
+	}
+	
+
+	public void setNewClient(Client newClient) {
+		this.newClient = newClient;
+	}
+
+
 	public String delete()
 	{
-		clients.remove(clientCourant);
-		System.out.println("deleting : " + clientCourant.getNom());
+		clientservice.delete(clientCourant);
 		return "clients";
 		
 	}
 	
-	public String ajouter(String a, String b)
+	public String ajouter()
 	{
-		Client nouveauclient = new Client(a,b);
-		clients.add(nouveauclient);
+		clientservice.ajouter(newClient);
+		newClient = new Client();
 		return "clients";
 	}
 	
