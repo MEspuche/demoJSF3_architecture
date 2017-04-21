@@ -11,8 +11,11 @@
     <artifactId>jstl</artifactId>
     <version>1.2</version>
 	</dependency>
-  </dependencies>
-  
+
+
+
+
+    </dependencies>
   
   <build>
     <sourceDirectory>src</sourceDirectory>
